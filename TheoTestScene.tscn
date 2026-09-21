@@ -2,10 +2,27 @@
 
 [ext_resource type="Script" uid="uid://bqbfpm13rwum2" path="res://theo_test_scene.gd" id="1_jq8ic"]
 
-[sub_resource type="Environment" id="Environment_ejki1"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jq8ic"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_pxkum"]
+sky_material = SubResource("ProceduralSkyMaterial_jq8ic")
+
+[sub_resource type="Environment" id="Environment_lkp5b"]
+background_mode = 2
+sky = SubResource("Sky_pxkum")
+glow_enabled = true
 
 [node name="Main" type="Node3D" unique_id=727411318]
 script = ExtResource("1_jq8ic")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=914414186]
+environment = SubResource("Environment_lkp5b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=284898135]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=799080768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1609458, 0)
@@ -26,12 +43,10 @@ tracker = &"left_hand"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.88649917, 0.026595354, -0.8293419)
 size = Vector3(0.40447998, 0.39019775, 0.32824707)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=582083253]
-environment = SubResource("Environment_ejki1")
-
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=981289727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34774685, 0, -2.2746186)
 
-[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=2061761018]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9425097, 0)
-light_energy = 2.968
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=446765432]
+transform = Transform3D(1, 0, 0, 0, 0.012943459, 0.99991626, 0, -0.99991626, 0.012943459, 0, 5.998871, 0)
+light_energy = 16.0
+shadow_enabled = true
