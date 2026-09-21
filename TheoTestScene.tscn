@@ -8,14 +8,30 @@
 script = ExtResource("1_jq8ic")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=799080768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1609458, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1507238454]
 
 [node name="XRController3D" type="XRController3D" parent="XROrigin3D" unique_id=1269263341]
 tracker = &"right_hand"
 
+[node name="CSGBox3D" type="CSGBox3D" parent="XROrigin3D/XRController3D" unique_id=1305585602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94812167, 0.025756598, -1.1376332)
+size = Vector3(0.27441406, 0.38720703, 0.34265137)
+
 [node name="XRController3D2" type="XRController3D" parent="XROrigin3D" unique_id=733137955]
 tracker = &"left_hand"
 
+[node name="CSGBox3D" type="CSGBox3D" parent="XROrigin3D/XRController3D2" unique_id=782871169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.88649917, 0.026595354, -0.8293419)
+size = Vector3(0.40447998, 0.39019775, 0.32824707)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=582083253]
 environment = SubResource("Environment_ejki1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=981289727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34774685, 0, -2.2746186)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=2061761018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9425097, 0)
+light_energy = 2.968
