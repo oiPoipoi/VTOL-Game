@@ -1,3 +1,36 @@
 [gd_scene format=3 uid="uid://yueggh3rdequ"]
 
+[ext_resource type="Script" uid="uid://cbp717budsrre" path="res://TestScenePlayer.gd" id="1_pvqqe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejki1"]
+size = Vector3(7.182617, 4.5028076, 9.872498)
+
 [node name="Node3D" type="Node3D" unique_id=982982474]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=987130357]
+custom_integrator = true
+script = ExtResource("1_pvqqe")
+vertical_accel = 50.0
+forward_ramp = 25.205
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D" unique_id=1107503135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1011765, 1.9872942, 1.581891)
+size = Vector3(7.383667, 4.0550537, 4.288208)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="RigidBody3D" unique_id=1236999063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3720527, 2.1940913, 4.97768)
+size = Vector3(1, 1, 3.0766602)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="RigidBody3D" unique_id=244674330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.663361, 1.9317565, -1.1903076)
+size = Vector3(1, 1, 3.3806152)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=450174221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0913086, 1.7514038, 1.7394104)
+shape = SubResource("BoxShape3D_ejki1")
+
+[node name="Camera3D" type="Camera3D" parent="RigidBody3D" unique_id=216602757]
+transform = Transform3D(-0.0842915, 0, -0.9964411, 0, 1, 0, 0.9964411, 0, -0.0842915, -9.713318, 5.4135294, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=688178213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.575005, 5.691448, 2.8824835)
