@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://yp7anwciwpuk"]
 
-[node name="Node3D" type="Node3D" unique_id=727411318]
+[ext_resource type="Script" uid="uid://bqbfpm13rwum2" path="res://theo_test_scene.gd" id="1_jq8ic"]
+
+[sub_resource type="Environment" id="Environment_ejki1"]
+
+[node name="Main" type="Node3D" unique_id=727411318]
+script = ExtResource("1_jq8ic")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=799080768]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1507238454]
+
+[node name="XRController3D" type="XRController3D" parent="XROrigin3D" unique_id=1269263341]
+tracker = &"right_hand"
+
+[node name="XRController3D2" type="XRController3D" parent="XROrigin3D" unique_id=733137955]
+tracker = &"left_hand"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=582083253]
+environment = SubResource("Environment_ejki1")
