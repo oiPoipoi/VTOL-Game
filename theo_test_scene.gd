@@ -1,5 +1,7 @@
 extends Node3D
 
+
+
 var xr_interface: XRInterface
 
 func _ready() -> void:
@@ -18,3 +20,4 @@ func _ready() -> void:
 	else:
 		print("OpenXR could not be initialized")
 		print("Check that your headset and OpenXR runtime are active.")
+	
