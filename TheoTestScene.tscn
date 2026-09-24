@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://yp7anwciwpuk"]
 
 [ext_resource type="Script" uid="uid://bqbfpm13rwum2" path="res://theo_test_scene.gd" id="1_jq8ic"]
+[ext_resource type="PackedScene" uid="uid://cm77pj0etr1t6" path="res://assets/models/Hand.glb" id="2_pxkum"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jq8ic"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,26 +26,27 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=799080768]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1609458, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1507238454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8876486, -0.14751542)
 
 [node name="XRController3D" type="XRController3D" parent="XROrigin3D" unique_id=1269263341]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.93535614, 0.99739146, -1.6865575)
 tracker = &"right_hand"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="XROrigin3D/XRController3D" unique_id=1305585602]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94812167, 0.025756598, -1.1376332)
-size = Vector3(0.27441406, 0.38720703, 0.34265137)
+[node name="Hand" parent="XROrigin3D/XRController3D" unique_id=919057496 instance=ExtResource("2_pxkum")]
+transform = Transform3D(-8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="XRController3D2" type="XRController3D" parent="XROrigin3D" unique_id=733137955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20574921, 0.997, -1.687)
 tracker = &"left_hand"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="XROrigin3D/XRController3D2" unique_id=782871169]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.88649917, 0.026595354, -0.8293419)
-size = Vector3(0.40447998, 0.39019775, 0.32824707)
+[node name="Hand" parent="XROrigin3D/XRController3D2" unique_id=1323409130 instance=ExtResource("2_pxkum")]
+transform = Transform3D(8.742278e-09, 0.2, -1.7484556e-08, 0.2, -8.742278e-09, 0, -7.642742e-16, -1.7484556e-08, -0.2, -0.935, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=981289727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34774685, 0, -2.2746186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52142334, 0)
+size = Vector3(1, 2.0428467, 1)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=446765432]
 transform = Transform3D(1, 0, 0, 0, 0.012943459, 0.99991626, 0, -0.99991626, 0.012943459, 0, 5.998871, 0)
