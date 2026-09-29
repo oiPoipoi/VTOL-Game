@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://btferyu006uoq"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4fkpe"]
+
 [node name="Node3D" type="Node3D" unique_id=410886461]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1571504604]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=994790787]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1553597403]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+shape = SubResource("BoxShape3D_4fkpe")
