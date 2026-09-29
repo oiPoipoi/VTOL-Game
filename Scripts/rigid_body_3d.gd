@@ -6,7 +6,7 @@ var grabbing_controller: XRController3D = null
 func _physics_process(_delta: float) -> void:
 	if grabbing_controller:
 		# Check if the player let go of the grab button
-		if not grabbing_controller.is_button_pressed("trigger"): 
+		if not grabbing_controller.is_button_pressed("grip_click"): 
 			#grabbing_controller = null
 			return
 			
