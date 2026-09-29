@@ -1,6 +1,5 @@
 extends RigidBody3D
 
-@onready var interaction_area: Area3D = $"../Area3D"
 
 var grabbing_controller: XRController3D = null
 

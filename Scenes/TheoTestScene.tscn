@@ -44,6 +44,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="Left" type="XRController3D" parent="XROrigin3D" unique_id=733137955]
 tracker = &"left_hand"
+pose = &"grip"
 
 [node name="Hand" parent="XROrigin3D/Left" unique_id=98323181 instance=ExtResource("2_dub46")]
 transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
