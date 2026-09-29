@@ -28,9 +28,12 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
+"res://AndroidSKD/": "gray",
 "res://Assets/": "yellow",
 "res://Scenes/": "red",
-"res://Scripts/": "orange"
+"res://Scripts/": "orange",
+"res://addons/": "gray",
+"res://android/": "gray"
 }
 
 [filesystem]
