@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://da088letipxx3"]
 
-[ext_resource type="Script" path="res://theo_test_scene.gd" id="1_jq8ic"]
-[ext_resource type="PackedScene" uid="uid://byhvc5o7mb4wv" path="res://assets/models/Hand.glb" id="2_pxkum"]
+[ext_resource type="Script" uid="uid://bqbfpm13rwum2" path="res://Scripts/theo_test_scene.gd" id="1_pxkum"]
+[ext_resource type="PackedScene" uid="uid://byhvc5o7mb4wv" path="res://Assets/models/Hand.glb" id="2_pxkum"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jq8ic"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,7 +16,7 @@ sky = SubResource("Sky_pxkum")
 glow_enabled = true
 
 [node name="Main" type="Node3D" unique_id=727411318]
-script = ExtResource("1_jq8ic")
+script = ExtResource("1_pxkum")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=914414186]
 environment = SubResource("Environment_lkp5b")
