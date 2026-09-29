@@ -7,7 +7,7 @@ func _physics_process(_delta: float) -> void:
 	if grabbing_controller:
 		# Check if the player let go of the grab button
 		if not grabbing_controller.is_button_pressed("trigger"): 
-			grabbing_controller = null
+			#grabbing_controller = null
 			return
 			
 		var local_target_pos = to_local(grabbing_controller.global_position)
@@ -26,5 +26,10 @@ func _process(_delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	# If a controller enters, listen for an initial grab input
-	if body is XRController3D and body.is_button_pressed("trigger"):
-		grabbing_controller = body
+	if body.get_parent() is XRController3D:
+		grabbing_controller = body.get_parent()
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if grabbing_controller == body.get_parent():
+		grabbing_controller = null
