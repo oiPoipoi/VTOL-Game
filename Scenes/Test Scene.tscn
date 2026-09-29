@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://bfhiser248ua6"]
+[gd_scene format=3 uid="uid://ble2vvquia0jl"]
 
 [ext_resource type="PackedScene" uid="uid://h6vkb8em1u8m" path="res://Scenes/VTOL_Test.tscn" id="1_i60f6"]
+[ext_resource type="PackedScene" uid="uid://yp7anwciwpuk" path="res://Scenes/Player.tscn" id="2_5oj71"]
+[ext_resource type="PackedScene" uid="uid://cl2kmcv3lspb1" path="res://Scenes/lever.tscn" id="3_ckix0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pvqqe"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,3 +37,8 @@ transform = Transform3D(-0.06324078, 0, -0.9979983, 0, 1, 0, 0.9979983, 0, -0.06
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=362600052]
 shape = SubResource("WorldBoundaryShape3D_7a2mg")
+
+[node name="player" parent="." unique_id=727411318 instance=ExtResource("2_5oj71")]
+
+[node name="lever" parent="." unique_id=679505293 instance=ExtResource("3_ckix0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.765192, 0, -0.36889398)
