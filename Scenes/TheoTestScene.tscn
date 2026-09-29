@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bqbfpm13rwum2" path="res://Scripts/theo_test_scene.gd" id="1_dub46"]
 [ext_resource type="PackedScene" uid="uid://byhvc5o7mb4wv" path="res://Assets/models/Hand.glb" id="2_dub46"]
 [ext_resource type="Script" uid="uid://bwmhrfarxum6s" path="res://Scripts/Hands/right.gd" id="2_h0vfr"]
+[ext_resource type="PackedScene" uid="uid://cl2kmcv3lspb1" path="res://Scenes/lever.tscn" id="4_fwn6k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jq8ic"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,8 +16,6 @@ sky_material = SubResource("ProceduralSkyMaterial_jq8ic")
 background_mode = 2
 sky = SubResource("Sky_pxkum")
 glow_enabled = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4fkpe"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7ya77"]
 
@@ -58,15 +57,10 @@ transform = Transform3D(1, 0, 0, 0, 0.012943459, 0.99991626, 0, -0.99991626, 0.0
 light_energy = 16.0
 shadow_enabled = true
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1170662574]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2830219, -2.6372113)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D" unique_id=537155972]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1608739933]
-shape = SubResource("BoxShape3D_4fkpe")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=510052575]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=365664227]
 shape = SubResource("WorldBoundaryShape3D_7ya77")
+
+[node name="Node3D" parent="." unique_id=679505293 instance=ExtResource("4_fwn6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110943794, 0.25882566, -3.2986782)
