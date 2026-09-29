@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cl2kmcv3lspb1"]
 
-[ext_resource type="Script" uid="uid://dwu8p1pujqpl8" path="res://Scripts/rigid_body_3d.gd" id="1_wv1st"]
+[ext_resource type="Script" uid="uid://dwu8p1pujqpl8" path="res://Scenes/rigid_body_3d.gd" id="1_wv1st"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4fkpe"]
 size = Vector3(0.368042, 0.3022461, 1)
@@ -25,6 +25,7 @@ radius = 0.38577846
 shape = SubResource("BoxShape3D_4fkpe")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=317376513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07567167, 0)
 script = ExtResource("1_wv1st")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1527437897]
@@ -43,6 +44,7 @@ angular_limit/upper = 0.7853982
 angular_limit/lower = -0.7853982
 
 [node name="Area3D" type="Area3D" parent="." unique_id=274636729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08960199, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=461586339]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0948768, 0)
