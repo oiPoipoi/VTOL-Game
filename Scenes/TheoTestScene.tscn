@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://i6cft43div17"]
+
+[ext_resource type="Script" uid="uid://bqbfpm13rwum2" path="res://Scripts/theo_test_scene.gd" id="1_dub46"]
+[ext_resource type="PackedScene" uid="uid://byhvc5o7mb4wv" path="res://Assets/models/Hand.glb" id="2_dub46"]
+[ext_resource type="Script" uid="uid://bwmhrfarxum6s" path="res://Scripts/Hands/right.gd" id="2_h0vfr"]
+[ext_resource type="PackedScene" uid="uid://cl2kmcv3lspb1" path="res://Scenes/lever.tscn" id="5_2kot2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jq8ic"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_pxkum"]
+sky_material = SubResource("ProceduralSkyMaterial_jq8ic")
+
+[sub_resource type="Environment" id="Environment_lkp5b"]
+background_mode = 2
+sky = SubResource("Sky_pxkum")
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iqkd1"]
+size = Vector3(0.515625, 0.37353516, 1.0903168)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejki1"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ejki1"]
+
+[node name="Main" type="Node3D" unique_id=727411318]
+script = ExtResource("1_dub46")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=914414186]
+environment = SubResource("Environment_lkp5b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=284898135]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=799080768]
+world_scale = 3.0
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1507238454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8876486, -0.14751542)
+
+[node name="Right" type="XRController3D" parent="XROrigin3D" unique_id=1269263341]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+tracker = &"right_hand"
+script = ExtResource("2_h0vfr")
+
+[node name="Hand" parent="XROrigin3D/Right" unique_id=1855547124 instance=ExtResource("2_dub46")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="XROrigin3D/Right" unique_id=1265710185]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Right/Area3D" unique_id=1458266792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2421875, 0.030273438, 0.18868256)
+shape = SubResource("BoxShape3D_iqkd1")
+
+[node name="Left" type="XRController3D" parent="XROrigin3D" unique_id=733137955]
+tracker = &"left_hand"
+
+[node name="Hand" parent="XROrigin3D/Left" unique_id=98323181 instance=ExtResource("2_dub46")]
+transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=981289727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52142334, 0)
+size = Vector3(1, 2.0428467, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=446765432]
+transform = Transform3D(1, 0, 0, 0, 0.012943459, 0.99991626, 0, -0.99991626, 0.012943459, 0, 5.998871, 0)
+light_energy = 16.0
+shadow_enabled = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=62745949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8623543, -3.2160997)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D" unique_id=1146756236]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=571080109]
+shape = SubResource("BoxShape3D_ejki1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=172803129]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=345957838]
+shape = SubResource("WorldBoundaryShape3D_ejki1")
+
+[node name="Node3D" parent="." unique_id=679505293 instance=ExtResource("5_2kot2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9133439)
