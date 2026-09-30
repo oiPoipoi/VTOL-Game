@@ -6,6 +6,7 @@ extends RigidBody3D
 @export var roll_speed: float = 5.0
 @export var yaw_speed: float = 3.0
 @onready var label: Label = $CanvasLayer/Label
+@onready var csg_box_3d: CSGBox3D = $CSGBox3D
 
 var gas: float = 10000
 var electric: float = 10000
@@ -13,6 +14,9 @@ var engines_on: bool = false
 
 var needs_respawn: bool = false
 var spawn_transform: Transform3D
+
+# Damage Vars
+var chassis_damage: int = 100
 
 func _ready() -> void:
 	spawn_transform = global_transform
@@ -44,6 +48,9 @@ func _physics_process(delta: float) -> void:
 	if gas == 0 && engines_on == true:
 		electric -= 5
 	
+	if chassis_damage == 0:
+		needs_respawn = true
+	
 	if Input.is_action_just_pressed("restart"):
 		needs_respawn = true
 	
@@ -59,7 +66,9 @@ func _physics_process(delta: float) -> void:
 		electric = 0
 	if gas <= 0:
 		gas = 0
-	label.text = "Gas: " +str(gas) + "\nEnegry: " +str(electric)
+	if chassis_damage <= 0:
+		chassis_damage = 0
+	label.text = "Gas: " +str(gas) + "\nEnegry: " +str(electric) + "\nChassis Damage: " + str(chassis_damage)
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("ground"):
@@ -73,4 +82,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		engines_on = false
 		gas = 10000
 		electric = 10000
+		chassis_damage = 100
 		needs_respawn = false
+
+func _on_damage_area_entered(area: Area3D) -> void:
+	var chassis_rand = randi_range(2,6)
+	chassis_damage -= chassis_rand
