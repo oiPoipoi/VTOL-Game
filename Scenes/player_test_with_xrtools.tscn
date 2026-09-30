@@ -2,7 +2,28 @@
 
 [ext_resource type="Script" uid="uid://ck4yn3hxuobj7" path="res://addons/godot-xr-tools/player/player_body.gd" id="1_0tmyl"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0tmyl"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_2kxtm"]
+sky_material = SubResource("ProceduralSkyMaterial_0tmyl")
+
+[sub_resource type="Environment" id="Environment_j5bet"]
+background_mode = 2
+sky = SubResource("Sky_2kxtm")
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ejki1"]
+
 [node name="Node3D" type="Node3D" unique_id=418302143]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1259183892]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1959224809]
+environment = SubResource("Environment_j5bet")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1090866437]
 
@@ -12,3 +33,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9863821, 0)
 [node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D/XRCamera3D" unique_id=398538331]
 script = ExtResource("1_0tmyl")
 metadata/_custom_type_script = "uid://ck4yn3hxuobj7"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=267367561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.298946)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1335079037]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=868342032]
+shape = SubResource("WorldBoundaryShape3D_ejki1")
