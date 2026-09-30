@@ -1,4 +1,5 @@
 extends RigidBody3D
+const BULLET = preload("uid://dhlncbg17775")
 
 @export var max_thrust: float = 30.0
 @export var throttle_power: float = 20.0
@@ -51,6 +52,12 @@ func _physics_process(delta: float) -> void:
 	if chassis_damage == 0:
 		needs_respawn = true
 	
+	if Input.is_action_just_pressed("fire"):
+		var bullet = BULLET.instantiate()
+		get_tree().current_scene.add_child(bullet)
+		bullet.position = global_position
+		bullet.rotation = global_rotation
+	
 	if Input.is_action_just_pressed("restart"):
 		needs_respawn = true
 	
@@ -88,3 +95,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 func _on_damage_area_entered(area: Area3D) -> void:
 	var chassis_rand = randi_range(2,6)
 	chassis_damage -= chassis_rand
+
+func _on_damage_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.
