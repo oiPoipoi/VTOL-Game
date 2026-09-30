@@ -1,54 +1,38 @@
 [gd_scene format=3 uid="uid://cl2kmcv3lspb1"]
 
-[ext_resource type="Script" uid="uid://dwu8p1pujqpl8" path="res://Scripts/rigid_body_3d.gd" id="1_wv1st"]
+[ext_resource type="Script" uid="uid://cljwhhty424bb" path="res://Scripts/lever.gd" id="1_fhlr4"]
+[ext_resource type="Script" uid="uid://c8gx2wc7hsxf5" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="1_wv1st"]
+[ext_resource type="Script" uid="uid://dlojnwxo25bky" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="3_jjeqf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4fkpe"]
-size = Vector3(0.368042, 0.3022461, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4fkpe"]
-height = 1.3012695
-radius = 0.0859375
+height = 0.9920654
+radius = 0.09082031
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_7xq6r"]
-top_radius = 0.07763672
-bottom_radius = 0.07763672
-height = 1.3129883
+[node name="StaticBody3D" type="StaticBody3D" unique_id=175926087]
+script = ExtResource("1_fhlr4")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_7xq6r"]
-radius = 0.38577846
-
-[node name="Node3D" type="Node3D" unique_id=679505293]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=508120265]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1938704780]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=179387067]
 shape = SubResource("BoxShape3D_4fkpe")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=317376513]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07567167, 0)
+[node name="XRToolsInteractableHinge" type="Node3D" parent="." unique_id=979411517]
 script = ExtResource("1_wv1st")
+hinge_limit_min = -80.0
+hinge_limit_max = 80.0
+metadata/_custom_type_script = "uid://c8gx2wc7hsxf5"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1527437897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77423894, 0)
+[node name="XRToolsInteractableHandle" type="RigidBody3D" parent="XRToolsInteractableHinge" unique_id=1667060137]
+script = ExtResource("3_jjeqf")
+metadata/_custom_type_script = "uid://dlojnwxo25bky"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsInteractableHinge/XRToolsInteractableHandle" unique_id=663239474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1124712, 0)
 shape = SubResource("CylinderShape3D_4fkpe")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=697239395]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7734797, 0)
-mesh = SubResource("CylinderMesh_7xq6r")
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="XRToolsInteractableHinge/XRToolsInteractableHandle" unique_id=435989404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1035028, 0)
+radius = 0.08251953
+height = 0.9923096
 
-[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=700294812]
-node_a = NodePath("../StaticBody3D")
-node_b = NodePath("../RigidBody3D")
-angular_limit/enable = true
-angular_limit/upper = 0.7853982
-angular_limit/lower = -0.7853982
-
-[node name="Area3D" type="Area3D" parent="." unique_id=274636729]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08960199, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=461586339]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0948768, 0)
-shape = SubResource("SphereShape3D_7xq6r")
-
-[connection signal="body_entered" from="Area3D" to="RigidBody3D" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="RigidBody3D" method="_on_area_3d_body_exited"]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1954452883]

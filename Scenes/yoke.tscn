@@ -2,21 +2,5 @@
 
 [ext_resource type="Script" uid="uid://q2rixlga0eat" path="res://Scripts/yoke.gd" id="1_lt3gt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4fkpe"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_4fkpe"]
-
 [node name="Node3D" type="Node3D" unique_id=410886461]
 script = ExtResource("1_lt3gt")
-
-[node name="GrabZone" type="Area3D" parent="." unique_id=994790787]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GrabZone" unique_id=1553597403]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-shape = SubResource("BoxShape3D_4fkpe")
-
-[node name="YokeMesh" type="MeshInstance3D" parent="GrabZone" unique_id=1417795993]
-mesh = SubResource("BoxMesh_4fkpe")
-
-[connection signal="area_entered" from="GrabZone" to="." method="_on_grab_zone_area_entered"]
-[connection signal="area_exited" from="GrabZone" to="." method="_on_grab_zone_area_exited"]
