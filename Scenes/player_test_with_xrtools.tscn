@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dr433ebykbi8m"]
+
+[ext_resource type="Script" uid="uid://ck4yn3hxuobj7" path="res://addons/godot-xr-tools/player/player_body.gd" id="1_0tmyl"]
+
+[node name="Node3D" type="Node3D" unique_id=418302143]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1090866437]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=53559499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9863821, 0)
+
+[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D/XRCamera3D" unique_id=398538331]
+script = ExtResource("1_0tmyl")
+metadata/_custom_type_script = "uid://ck4yn3hxuobj7"
