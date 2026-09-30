@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cjlj5l6nlugo5"]
+
+[ext_resource type="Script" uid="uid://b8ijnibj87wt4" path="res://Scripts/TerrainGen.gd" id="1_oh5cu"]
+[ext_resource type="PackedScene" uid="uid://dhlncbg17775" path="res://Scenes/bullet.tscn" id="3_1wilm"]
+[ext_resource type="PackedScene" uid="uid://b5idga3ypq0kt" path="res://Scenes/VTOL.tscn" id="3_oh5cu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
+sky_top_color = Color(0.32571432, 0.5058764, 1, 1)
+sky_horizon_color = Color(0.7844657, 0.86774147, 1.1706841, 1)
+ground_bottom_color = Color(0.12941177, 0.28235295, 1, 1)
+ground_horizon_color = Color(0.7844657, 0.86774147, 1.1706841, 1)
+energy_multiplier = 0.85
+
+[sub_resource type="Sky" id="Sky_5a7ea"]
+sky_material = SubResource("ProceduralSkyMaterial_go701")
+
+[sub_resource type="Environment" id="Environment_8j60k"]
+background_mode = 2
+sky = SubResource("Sky_5a7ea")
+ssao_enabled = true
+sdfgi_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0yrt"]
+albedo_color = Color(0, 0.23921569, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7a2mg"]
+material = SubResource("StandardMaterial3D_k0yrt")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_go701"]
+size = Vector3(3240.08, 0.2763672, 3448.477)
+
+[node name="World" type="Node3D" unique_id=2038324133]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1844055638]
+environment = SubResource("Environment_8j60k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1998929802]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="ocean" type="StaticBody3D" parent="." unique_id=123616135 groups=["ground"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3154984, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ocean" unique_id=1967719975]
+transform = Transform3D(1500, 0, 0, 0, 168.68, 0, 0, 0, 1500, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7a2mg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ocean" unique_id=1753127775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.836975, -0.3618164, 46.148132)
+shape = SubResource("BoxShape3D_go701")
+
+[node name="terrain" type="Node3D" parent="." unique_id=1885132052]
+script = ExtResource("1_oh5cu")
+chunk_size = 3000.0
+resolution = 500
+height_scale = 50.0
+how_much = 0.005
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=282738965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8971558, 90.30202, 0.48461914)
+use_collision = true
+size = Vector3(27.53064, 1.8193359, 16.983887)
+
+[node name="Bullet" parent="." unique_id=2147018615 instance=ExtResource("3_1wilm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 91.869354, -3.6821895)
+
+[node name="RigidBody3D" parent="." unique_id=1840847877 instance=ExtResource("3_oh5cu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 93.56342, 0)

@@ -14,12 +14,14 @@ background_mode = 2
 sky = SubResource("Sky_2kxtm")
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ir6ex"]
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ejki1"]
 
 [node name="Node3D" type="Node3D" unique_id=418302143]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1259183892]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -0.0072193146, 0.013803482, -0.00042295456)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1959224809]
@@ -33,6 +35,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9863821, 0)
 [node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D/XRCamera3D" unique_id=398538331]
 script = ExtResource("1_0tmyl")
 metadata/_custom_type_script = "uid://ck4yn3hxuobj7"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/XRToolsPlayerBody" unique_id=404180145]
+shape = SubResource("BoxShape3D_ir6ex")
+
+[node name="XRController3D" type="XRController3D" parent="XROrigin3D" unique_id=441241001]
+tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRController3D" unique_id=1607084494]
+
+[node name="XRController3D2" type="XRController3D" parent="XROrigin3D" unique_id=2136687542]
+tracker = &"left_hand"
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=267367561]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.298946)
