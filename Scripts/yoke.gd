@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 	# Apply visual rotation to the yoke mesh based on inputs
 	yoke_mesh.rotation_degrees.x = pitch_input * max_pitch_deg
 	yoke_mesh.rotation_degrees.z = roll_input * max_roll_deg
+	print("Yoke inputs - Pitch: ", pitch_input, " Roll: ", roll_input)
 
 func track_controller_movement() -> void:
 	# Get controller position relative to the Yoke's local space
