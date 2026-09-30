@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://byhvc5o7mb4wv" path="res://Assets/models/Hand.glb" id="2_dub46"]
 [ext_resource type="Script" uid="uid://bwmhrfarxum6s" path="res://Scripts/Hands/right.gd" id="2_h0vfr"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_iqkd1"]
-size = Vector3(0.515625, 0.37353516, 1.0903168)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7xq6r"]
+size = Vector3(0.8099365, 0.33251953, 0.96606445)
 
 [node name="Main" type="Node3D" unique_id=727411318]
 script = ExtResource("1_dub46")
@@ -23,17 +23,23 @@ script = ExtResource("2_h0vfr")
 [node name="Hand" parent="XROrigin3D/Right" unique_id=1855547124 instance=ExtResource("2_dub46")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="Area3D" type="Area3D" parent="XROrigin3D/Right" unique_id=1265710185]
+[node name="Area3D" type="Area3D" parent="XROrigin3D/Right" unique_id=992531713]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Right/Area3D" unique_id=1458266792]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2421875, 0.030273438, 0.18868256)
-shape = SubResource("BoxShape3D_iqkd1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Right/Area3D" unique_id=688214429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.062194824, 0.03491211, 0.16589355)
+shape = SubResource("BoxShape3D_7xq6r")
 
 [node name="Left" type="XRController3D" parent="XROrigin3D" unique_id=733137955]
 tracker = &"left_hand"
 
 [node name="Hand" parent="XROrigin3D/Left" unique_id=98323181 instance=ExtResource("2_dub46")]
 transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="XROrigin3D/Left" unique_id=1540034531]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Left/Area3D" unique_id=202727726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.062194824, 0.03491211, 0.16589355)
+shape = SubResource("BoxShape3D_7xq6r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=981289727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52142334, 0)

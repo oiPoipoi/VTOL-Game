@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var grab_zone: Area3D = $GrabZone
-@onready var yoke_mesh: MeshInstance3D = $YokeMesh
+@onready var yoke_mesh: MeshInstance3D = $GrabZone/YokeMesh
 
 # Limits for your yoke movement (in degrees)
 @export var max_pitch_deg: float = 30.0
@@ -17,11 +17,9 @@ var active_controller: XRController3D = null
 var is_grabbed: bool = false
 
 func _ready() -> void:
-	func _on_area_3d_area_entered(area: Area3D) -> void:
-		pass # Replace with function body.
-		
-	func _on_area_3d_area_exited(area: Area3D) -> void:
-		pass
+	# Connect Area3D signals to detect VR hands/controllers
+	grab_zone.area_entered.connect(_on_grab_zone_area_exited)
+	grab_zone.area_exited.connect(_on_grab_zone_area_entered)
 
 func _process(delta: float) -> void:
 	if is_grabbed and is_instance_valid(active_controller):
@@ -55,29 +53,27 @@ func track_controller_movement() -> void:
 	roll_input = clamp(raw_roll, -1.0, 1.0)
 	if abs(roll_input) < deadzone: roll_input = 0.0
 
-func _on_area_entered(area: Area3D) -> void:
-	# Look up the scene tree to see if the overlapping area belongs to an XRController3D
-	var parent = area.get_parent()
-	if parent is XRController3D and not is_grabbed:
-		# If player is holding the grip button while entering or presses it inside
-		active_controller = parent
-		set_process(true)
-
 func _physics_process(_delta: float) -> void:
 	# Check for grab input inside physics loop for responsiveness
 	if is_instance_valid(active_controller) and not is_grabbed:
-		if active_controller.is_button_pressed("grip_click"):
+		if active_controller.is_button_pressed("grip"):
 			is_grabbed = true
-
 
 func release_yoke() -> void:
 	is_grabbed = false
 	active_controller = null
 
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	pass # Replace with function body.
+func _on_grab_zone_area_exited(area: Area3D) -> void:
+	if is_instance_valid(active_controller) and area.get_parent() == active_controller:
+		if not is_grabbed:
+			active_controller = null
 
 
-func _on_area_3d_area_exited(area: Area3D) -> void:
-	pass
+func _on_grab_zone_area_entered(area: Area3D) -> void:
+	# Look up the scene tree to see if the overlapping area belongs to an XRController3D
+	var parent = area.get_parent()
+	if parent is XRController3D and not is_grabbed:
+		# If player is holding the grip button while entering or presses it inside
+		active_controller = parent
+		set_process(true)
