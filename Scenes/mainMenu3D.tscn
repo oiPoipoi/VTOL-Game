@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://80p8kt4usxml"]
 
 [node name="Node3D" type="Node3D" unique_id=877072824]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=240614559]
+
+[node name="right" type="XRController3D" parent="XROrigin3D" unique_id=1307699230]
+tracker = &"right_hand"
+
+[node name="left" type="XRController3D" parent="XROrigin3D" unique_id=1043791824]
+tracker = &"left_hand"
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=820321613]
