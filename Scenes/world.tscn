@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://pifuw3yd88pf"]
 
 [ext_resource type="Script" uid="uid://b8ijnibj87wt4" path="res://Scripts/TerrainGen.gd" id="1_a02cp"]
-[ext_resource type="PackedScene" uid="uid://h6vkb8em1u8m" path="res://Scenes/VTOL_Test.tscn" id="2_go701"]
-[ext_resource type="PackedScene" uid="uid://dhlncbg17775" path="res://Scenes/bullet.tscn" id="3_5a7ea"]
+[ext_resource type="PackedScene" uid="uid://b5idga3ypq0kt" path="res://Scenes/BasicVTOL.tscn" id="2_go701"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 sky_top_color = Color(0.32571432, 0.5058764, 1, 1)
@@ -56,13 +55,10 @@ resolution = 500
 height_scale = 50.0
 how_much = 0.005
 
-[node name="RigidBody3D" parent="." unique_id=1840847877 instance=ExtResource("2_go701")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 95.90502, 0)
-
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=282738965]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8971558, 90.30202, 0.48461914)
 use_collision = true
 size = Vector3(27.53064, 1.8193359, 16.983887)
 
-[node name="Bullet" parent="." unique_id=2147018615 instance=ExtResource("3_5a7ea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 91.869354, -3.6821895)
+[node name="BasicVTOL" parent="." unique_id=1840847877 instance=ExtResource("2_go701")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 96.15772, -2.010765)
