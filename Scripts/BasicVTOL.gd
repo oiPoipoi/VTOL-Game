@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		gas = 0
 	if chassis_damage <= 0:
 		chassis_damage = 0
-	label.text = "Gas: " +str(gas) + "\nEnegry: " +str(electric) + "\nChassis Damage: " + str(chassis_damage)
+	label.text = "Gas: " +str(gas) + "\nEnegry: " +str(electric) + "\nChassis Damage: " + str(chassis_damage) + "\nRight Wing Damage: " + str(rWingDamage) + "\nLeft Wing Damage: " + str(lWingDamage)
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("ground"):
@@ -98,4 +98,13 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 #	chassis_damage -= chassis_rand
 
 func _on_chassis_damage_area_entered(area: Area3D) -> void:
-	pass # Replace with function body.
+	var chassis_rand = randi_range(2,6)
+	chassis_damage -= chassis_rand
+
+func _on_r_wing_damage_area_entered(area: Area3D) -> void:
+	var rWing_rand = randi_range(2,6)
+	rWingDamage -= rWing_rand
+
+func _on_l_wing_damage_area_entered(area: Area3D) -> void:
+	var lWing_rand = randi_range(2,6)
+	lWingDamage = lWing_rand

@@ -91,3 +91,5 @@ shape = SubResource("BoxShape3D_sbur7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Damage/ChassisDamage" to="." method="_on_chassis_damage_area_entered"]
+[connection signal="area_entered" from="Damage/rWingDamage" to="." method="_on_r_wing_damage_area_entered"]
+[connection signal="area_entered" from="Damage/lWingDamage" to="." method="_on_l_wing_damage_area_entered"]
