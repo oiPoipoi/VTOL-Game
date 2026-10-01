@@ -10,6 +10,7 @@
 [node name="Player" type="XROrigin3D" unique_id=422202251]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=195490408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17036992, 0)
 
 [node name="left hand" type="XRController3D" parent="." unique_id=709014924]
 tracker = &"left_hand"
@@ -20,13 +21,13 @@ tracker = &"left_hand"
 
 [node name="FunctionPickup" parent="left hand" unique_id=1567166387 instance=ExtResource("3_rbqnn")]
 
-[node name="XRController3D2" type="XRController3D" parent="." unique_id=534077886]
+[node name="rightHand" type="XRController3D" parent="." unique_id=534077886]
 tracker = &"right_hand"
 
-[node name="RightHand" parent="XRController3D2" unique_id=825175847 instance=ExtResource("4_gqs2i")]
+[node name="RightHand" parent="rightHand" unique_id=825175847 instance=ExtResource("4_gqs2i")]
 
-[node name="MovementTurn" parent="XRController3D2" unique_id=1952816014 instance=ExtResource("5_kir5q")]
+[node name="MovementTurn" parent="rightHand" unique_id=1952816014 instance=ExtResource("5_kir5q")]
 
-[node name="FunctionPickup" parent="XRController3D2" unique_id=30087637 instance=ExtResource("3_rbqnn")]
+[node name="FunctionPickup" parent="rightHand" unique_id=30087637 instance=ExtResource("3_rbqnn")]
 
 [node name="PlayerBody" parent="." unique_id=1432412890 instance=ExtResource("6_c4xro")]
