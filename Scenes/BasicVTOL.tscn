@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://chnjp4h20cdr3"]
+[gd_scene format=3 uid="uid://b5idga3ypq0kt"]
 
 [ext_resource type="Script" uid="uid://drsodr3kpnua1" path="res://Scripts/VTOL.gd" id="1_iy2r2"]
 [ext_resource type="ArrayMesh" uid="uid://ovgobf6i3nfj" path="res://Assets/models/plane v2 .obj" id="2_rk7he"]
@@ -11,13 +11,13 @@ radius = 1.8959961
 height = 25.38385
 radius = 1.4536133
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=1840847877 groups=["ground"]]
+[node name="BasicVTOL" type="RigidBody3D" unique_id=1840847877 groups=["ground"]]
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_iy2r2")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=705279322]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.095321655, 1.3813932, -6.713883)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05623114, 1.1135876, -6.3307066)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1954848686]
 
