@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5idga3ypq0kt"]
 
-[ext_resource type="Script" uid="uid://drsodr3kpnua1" path="res://Scripts/VTOL.gd" id="1_iy2r2"]
+[ext_resource type="Script" uid="uid://drsodr3kpnua1" path="res://Scripts/BasicVTOL.gd" id="1_iy2r2"]
 [ext_resource type="ArrayMesh" uid="uid://ovgobf6i3nfj" path="res://Assets/models/plane v2 .obj" id="2_rk7he"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6ivru"]
