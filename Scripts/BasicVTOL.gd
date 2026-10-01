@@ -18,6 +18,8 @@ var spawn_transform: Transform3D
 
 # Damage Vars
 var chassis_damage: int = 100
+var rWingDamage: int = 95
+var lWingDamage: int = 95
 
 func _ready() -> void:
 	spawn_transform = global_transform
@@ -92,9 +94,12 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		chassis_damage = 100
 		needs_respawn = false
 
-func _on_damage_area_entered(area: Area3D) -> void:
-	var chassis_rand = randi_range(2,6)
-	chassis_damage -= chassis_rand
+#func _on_damage_area_entered(area: Area3D) -> void:
+#	var chassis_rand = randi_range(2,6)
+#	chassis_damage -= chassis_rand
 
-func _on_damage_body_entered(body: Node3D) -> void:
+
+
+
+func _on_chassis_damage_area_entered(area: Area3D) -> void:
 	pass # Replace with function body.
