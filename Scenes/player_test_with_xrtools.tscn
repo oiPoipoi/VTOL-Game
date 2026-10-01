@@ -42,8 +42,6 @@ shape = SubResource("BoxShape3D_ir6ex")
 [node name="XRController3D" type="XRController3D" parent="XROrigin3D" unique_id=441241001]
 tracker = &"right_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRController3D" unique_id=1607084494]
-
 [node name="XRController3D2" type="XRController3D" parent="XROrigin3D" unique_id=2136687542]
 tracker = &"left_hand"
 
