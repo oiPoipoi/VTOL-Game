@@ -6,6 +6,7 @@ func _ready() -> void:
 	# Connect the signal using the Godot 4.x Callable syntax
 	hinge.hinge_moved.connect(_on_lever_moved)
 
+
 func _on_lever_moved(angle: float) -> void:
 	# 'angle' returns the current angle of rotation in radians
 	# You can track if it passes a certain threshold to trigger gameplay events
