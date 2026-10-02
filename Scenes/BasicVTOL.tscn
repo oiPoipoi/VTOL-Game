@@ -8,10 +8,10 @@ height = 22.229126
 radius = 2.1123047
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejki1"]
-size = Vector3(11.19397, 1, 3.2183228)
+size = Vector3(10.7942505, 1, 3.2183228)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iqkd1"]
-size = Vector3(10.676147, 1, 3.480957)
+size = Vector3(10.52179, 1, 3.480957)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iqkd1"]
 height = 22.80127
@@ -23,7 +23,7 @@ size = Vector3(10.90918, 1, 3.239746)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sbur7"]
 size = Vector3(10.807495, 1, 3.6152344)
 
-[node name="BasicVTOL" type="RigidBody3D" unique_id=1840847877 groups=["ground"]]
+[node name="BasicVTOL" type="RigidBody3D" unique_id=1840847877 groups=["bullet", "ground"]]
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_iy2r2")
@@ -33,7 +33,7 @@ roll_speed = 10.0
 yaw_speed = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=705279322]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05623114, 1.1135876, -6.3307066)
+transform = Transform3D(1, 0, 0, 0, 0.97821593, 0.20759003, 0, -0.20759003, 0.97821593, -0.05623114, 5.256652, 5.800729)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1954848686]
 
@@ -45,11 +45,10 @@ offset_bottom = 23.0
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 mesh = ExtResource("2_rk7he")
 
-[node name="Damage" type="Node" parent="." unique_id=1867139190]
+[node name="Damage" type="Node" parent="." unique_id=1867139190 groups=["bullet"]]
 
-[node name="ChassisDamage" type="Area3D" parent="Damage" unique_id=1339109627]
-visible = false
-collision_layer = 3
+[node name="ChassisDamage" type="Area3D" parent="Damage" unique_id=1339109627 groups=["bullet"]]
+collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Damage/ChassisDamage" unique_id=904311806]
@@ -58,22 +57,20 @@ shape = SubResource("CylinderShape3D_ejki1")
 debug_color = Color(0.98992115, 0, 0.2902333, 0.41960785)
 
 [node name="rWingDamage" type="Area3D" parent="Damage" unique_id=550346827]
-visible = false
-collision_layer = 3
+collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Damage/rWingDamage" unique_id=808915017]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.474824, 0, -1.2359314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6746836, 0, -1.2359314)
 shape = SubResource("BoxShape3D_ejki1")
 debug_color = Color(1, 0.00031126157, 0.102018066, 0.41960785)
 
 [node name="lWingDamage" type="Area3D" parent="Damage" unique_id=993206448]
-visible = false
-collision_layer = 3
+collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Damage/lWingDamage" unique_id=486443207]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40942, 0, -1.2404785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.486599, 0, -1.2404785)
 shape = SubResource("BoxShape3D_iqkd1")
 debug_color = Color(0.997618, 0, 0.17204309, 0.41960785)
 

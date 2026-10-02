@@ -49,6 +49,7 @@ import/fbx2gltf/enabled.android=true
 [global_group]
 
 ground=""
+bullet=""
 
 [input]
 

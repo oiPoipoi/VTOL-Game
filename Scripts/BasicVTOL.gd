@@ -91,20 +91,26 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		engines_on = false
 		gas = 10000
 		electric = 10000
+		# Damage reset
 		chassis_damage = 100
+		rWingDamage = 95
+		lWingDamage = 95
 		needs_respawn = false
 
 #	var chassis_rand = randi_range(2,6)
 #	chassis_damage -= chassis_rand
 
 func _on_chassis_damage_area_entered(area: Area3D) -> void:
-	var chassis_rand = randi_range(2,6)
-	chassis_damage -= chassis_rand
+	if area.is_in_group("bullet"):
+		var chassis_rand = randi_range(2,6)
+		chassis_damage -= chassis_rand
 
 func _on_r_wing_damage_area_entered(area: Area3D) -> void:
-	var rWing_rand = randi_range(2,6)
-	rWingDamage -= rWing_rand
+	if area.is_in_group("bullet"):
+		var rWing_rand = randi_range(2,6)
+		rWingDamage -= rWing_rand
 
 func _on_l_wing_damage_area_entered(area: Area3D) -> void:
-	var lWing_rand = randi_range(2,6)
-	lWingDamage = lWing_rand
+	if area.is_in_group("bullet"):
+		var lWing_rand = randi_range(2,6)
+		lWingDamage = lWing_rand

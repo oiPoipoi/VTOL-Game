@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8ijnibj87wt4" path="res://Scripts/TerrainGen.gd" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://b5idga3ypq0kt" path="res://Scenes/BasicVTOL.tscn" id="2_go701"]
+[ext_resource type="PackedScene" uid="uid://vbyryaklop6m" path="res://Scenes/test_bullet.tscn" id="3_5a7ea"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 sky_top_color = Color(0.32571432, 0.5058764, 1, 1)
@@ -61,4 +62,7 @@ use_collision = true
 size = Vector3(27.53064, 1.8193359, 16.983887)
 
 [node name="BasicVTOL" parent="." unique_id=1840847877 instance=ExtResource("2_go701")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 96.15772, -2.010765)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5510807, 93.90881, -2.010765)
+
+[node name="Bullet" parent="." unique_id=484794003 instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3031144, 98.69445, 0)
