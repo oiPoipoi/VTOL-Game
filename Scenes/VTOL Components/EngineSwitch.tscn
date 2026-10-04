@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://roqqwq653qox"]
+
+[ext_resource type="PackedScene" uid="uid://bnvxqb33lltmj" path="res://addons/godot-xr-tools/interactables/interactable_hinge.tscn" id="1_g4aj6"]
+[ext_resource type="Script" uid="uid://dlojnwxo25bky" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="2_md1u8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7a2mg"]
+height = 0.18193054
+radius = 0.03955078
+
+[node name="InteractableHinge" unique_id=166440253 instance=ExtResource("1_g4aj6")]
+
+[node name="XRToolsInteractableHandle" type="RigidBody3D" parent="." index="0" unique_id=2032238602]
+script = ExtResource("2_md1u8")
+metadata/_custom_type_script = "uid://dlojnwxo25bky"
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="XRToolsInteractableHandle" index="0" unique_id=332025624]
+transform = Transform3D(0.3125952, 0, 0, 0, 0.26779884, 0, 0, 0, 0.36426347, 0.0029621571, 0.099634714, 0)
+radius = 0.12402344
+height = 0.67626953
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsInteractableHandle" index="1" unique_id=941429523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001695171, 0.09955597, 0)
+shape = SubResource("CylinderShape3D_7a2mg")

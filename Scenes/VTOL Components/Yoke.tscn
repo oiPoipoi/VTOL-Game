@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b8p7jpvoew4oc"]
+
+[ext_resource type="PackedScene" uid="uid://du32t1mb2kd7x" path="res://addons/godot-xr-tools/interactables/interactable_joystick.tscn" id="1_5pnxa"]
+[ext_resource type="Script" uid="uid://dlojnwxo25bky" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="2_c82gg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7a2mg"]
+size = Vector3(0.3425598, 0.1729126, 0.11401367)
+
+[node name="InteractableJoystick" unique_id=2096383054 instance=ExtResource("1_5pnxa")]
+
+[node name="XRToolsInteractableHandle" type="RigidBody3D" parent="." index="0" unique_id=1168282114]
+script = ExtResource("2_c82gg")
+metadata/_custom_type_script = "uid://dlojnwxo25bky"
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="XRToolsInteractableHandle" index="0" unique_id=1049745624]
+transform = Transform3D(0.3125952, 0, 0, 0, 0.26779884, 0, 0, 0, 0.36426347, -0.16162981, 0.099634714, 0)
+radius = 0.12402344
+height = 0.67626953
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="XRToolsInteractableHandle" index="1" unique_id=1765616889]
+transform = Transform3D(0.3125952, 0, 0, 0, 0.26779884, 0, 0, 0, 0.36426347, 0.09308079, 0.099634714, 0)
+radius = 0.12402344
+height = 0.67626953
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="XRToolsInteractableHandle" index="2" unique_id=1673580193]
+transform = Transform3D(-1.1705859e-08, -0.3125952, 0, 0.26779884, -1.3663969e-08, 0, 0, 0, 0.36426347, -0.034224954, 0.15763544, 0)
+radius = 0.12402344
+height = 0.95425415
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="XRToolsInteractableHandle" index="3" unique_id=1130452969]
+transform = Transform3D(-1.1705859e-08, -0.3125952, 0, 0.26779884, -1.3663969e-08, 0, 0, 0, 0.36426347, -0.034224954, 0.043316677, 0)
+radius = 0.12402344
+height = 0.95425415
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsInteractableHandle" index="4" unique_id=217230465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038131714, 0.09371948, -0.008666992)
+shape = SubResource("BoxShape3D_7a2mg")

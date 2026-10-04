@@ -37,6 +37,8 @@ folder_colors={
 "res://AndroidSKD/": "gray",
 "res://Assets/": "yellow",
 "res://Scenes/": "red",
+"res://Scenes/Screens/": "purple",
+"res://Scenes/VTOL Components/": "pink",
 "res://Scripts/": "orange",
 "res://addons/": "gray",
 "res://android/": "gray"

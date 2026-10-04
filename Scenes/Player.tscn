@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://yp7anwciwpuk"]
 
 [ext_resource type="Script" uid="uid://bqbfpm13rwum2" path="res://Scripts/theo_test_scene.gd" id="1_dub46"]
-[ext_resource type="PackedScene" uid="uid://byhvc5o7mb4wv" path="res://Assets/models/Hand.glb" id="2_dub46"]
+[ext_resource type="PackedScene" uid="uid://byhvc5o7mb4wv" path="res://Assets/Models/Hand.glb" id="2_dub46"]
 [ext_resource type="Script" uid="uid://bwmhrfarxum6s" path="res://Scripts/Hands/right.gd" id="2_h0vfr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7xq6r"]
