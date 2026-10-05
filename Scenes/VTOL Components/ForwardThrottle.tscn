@@ -1,32 +1,32 @@
 [gd_scene format=3 uid="uid://th4mjt8qrxd7"]
 
-[ext_resource type="PackedScene" uid="uid://bnvxqb33lltmj" path="res://addons/godot-xr-tools/interactables/interactable_hinge.tscn" id="1_hqphd"]
-[ext_resource type="Script" uid="uid://dlojnwxo25bky" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="2_li57t"]
+[ext_resource type="Script" uid="uid://ba03bo4cxpk27" path="res://Scripts/VTOL Components/forward_throttle.gd" id="1_hqphd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7a2mg"]
-size = Vector3(0.28625488, 0.17663574, 0.087005615)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cubks"]
+size = Vector3(0.3110962, 0.17663574, 0.087005615)
 
-[node name="InteractableHinge" unique_id=468072597 instance=ExtResource("1_hqphd")]
+[node name="Forward Throttle" type="Area3D" unique_id=189351235]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_hqphd")
 
-[node name="XRToolsInteractableHandle" type="RigidBody3D" parent="." index="0" unique_id=1822430186]
-script = ExtResource("2_li57t")
-metadata/_custom_type_script = "uid://dlojnwxo25bky"
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="XRToolsInteractableHandle" index="0" unique_id=213866325]
-transform = Transform3D(0.3125952, 0, 0, 0, 0.26779884, 0, 0, 0, 0.36426347, -0.16162981, 0.099634714, 0)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1675802892]
+transform = Transform3D(0.3125952, 0, 0, 0, 0.26779884, 0, 0, 0, 0.36426347, 0.12471545, 0, 0)
 radius = 0.12402344
 height = 0.67626953
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="XRToolsInteractableHandle" index="1" unique_id=671499102]
-transform = Transform3D(0.3125952, 0, 0, 0, 0.26779884, 0, 0, 0, 0.36426347, 0.09308079, 0.099634714, 0)
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=607152067]
+transform = Transform3D(0.3125952, 0, 0, 0, 0.26779884, 0, 0, 0, 0.36426347, -0.14481547, 0, 0)
 radius = 0.12402344
 height = 0.67626953
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="XRToolsInteractableHandle" index="2" unique_id=485700288]
-transform = Transform3D(-1.1705859e-08, -0.3125952, 0, 0.26779884, -1.3663969e-08, 0, 0, 0, 0.36426347, -0.034224954, 0.15763544, 0)
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1578127587]
+transform = Transform3D(-1.1705859e-08, -0.3125952, 0, 0.26779884, -1.3663969e-08, 0, 0, 0, 0.36426347, 0, 0.06661601, 0)
 radius = 0.12402344
 height = 0.95425415
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsInteractableHandle" index="3" unique_id=254888521]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039123535, 0.0947876, 0.0012054443)
-shape = SubResource("BoxShape3D_7a2mg")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=492838177]
+shape = SubResource("BoxShape3D_cubks")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

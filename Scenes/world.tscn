@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://pifuw3yd88pf"]
 
+[ext_resource type="Script" uid="uid://2av6pakbx4vn" path="res://Scripts/world.gd" id="1_5a7ea"]
 [ext_resource type="Script" uid="uid://b8ijnibj87wt4" path="res://Scripts/TerrainGen.gd" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://b5idga3ypq0kt" path="res://Scenes/BasicVTOL.tscn" id="2_go701"]
-[ext_resource type="PackedScene" uid="uid://vbyryaklop6m" path="res://Scenes/test_bullet.tscn" id="3_5a7ea"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 sky_top_color = Color(0.32571432, 0.5058764, 1, 1)
@@ -30,6 +30,7 @@ material = SubResource("StandardMaterial3D_k0yrt")
 size = Vector3(3240.08, 0.2763672, 3448.477)
 
 [node name="World" type="Node3D" unique_id=2038324133]
+script = ExtResource("1_5a7ea")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1844055638]
 environment = SubResource("Environment_8j60k")
@@ -63,6 +64,3 @@ size = Vector3(27.53064, 1.8193359, 16.983887)
 
 [node name="BasicVTOL" parent="." unique_id=1840847877 instance=ExtResource("2_go701")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5510807, 93.90881, -2.010765)
-
-[node name="Bullet" parent="." unique_id=484794003 instance=ExtResource("3_5a7ea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3031144, 98.69445, 0)

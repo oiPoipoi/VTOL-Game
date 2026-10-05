@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jeff"
-run/main_scene="uid://bpsxar82ax02e"
+run/main_scene="uid://pifuw3yd88pf"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -40,6 +40,8 @@ folder_colors={
 "res://Scenes/Screens/": "purple",
 "res://Scenes/VTOL Components/": "pink",
 "res://Scripts/": "orange",
+"res://Scripts/Hands/": "purple",
+"res://Scripts/VTOL Components/": "pink",
 "res://addons/": "gray",
 "res://android/": "gray"
 }

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b8p7jpvoew4oc"]
+
+[ext_resource type="Script" uid="uid://b56ljrfw5o85x" path="res://Scripts/VTOL Components/yoke.gd" id="1_3tiof"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0yrt"]
+size = Vector3(0.30384827, 0.21447754, 0.110443115)
+
+[node name="Yoke" type="Area3D" unique_id=317075185]
+script = ExtResource("1_3tiof")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=590162017]
+transform = Transform3D(0.3125952, 0, 0, 0, 0.26779884, 0, 0, 0, 0.36426347, 0.12732837, 0, 0)
+radius = 0.12402344
+height = 0.67626953
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=919592314]
+transform = Transform3D(0.3125952, 0, 0, 0, 0.26779884, 0, 0, 0, 0.36426347, -0.11952785, 0, 0)
+radius = 0.12402344
+height = 0.67626953
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1195772629]
+transform = Transform3D(-1.1705859e-08, -0.3125952, 0, 0.26779884, -1.3663969e-08, 0, 0, 0, 0.36426347, 0, 0.07531245, 0)
+radius = 0.12402344
+height = 0.95425415
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=312383946]
+transform = Transform3D(-1.1705859e-08, -0.3125952, 0, 0.26779884, -1.3663969e-08, 0, 0, 0, 0.36426347, 0, -0.07871436, 0)
+radius = 0.12402344
+height = 0.95425415
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1514270684]
+shape = SubResource("BoxShape3D_k0yrt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
