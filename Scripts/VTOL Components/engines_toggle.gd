@@ -1,26 +1,44 @@
 extends Area3D
 
-var is_on: bool = false
+@export var max_angle_deg: float = 90.0
+@export var vtol_on = false
+
+var lever_position: float = 0.0
+
 var active_hand: Node3D = null
-var cooldown: float = 0.0
+var is_grabbed: bool = false
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
 
 func _on_area_entered(area: Area3D) -> void:
-	active_hand = area
+	if not is_grabbed:
+		active_hand = area
 
 func _on_area_exited(area: Area3D) -> void:
-	if area == active_hand:
+	if area == active_hand and not is_grabbed:
 		active_hand = null
 
-func _process(delta: float) -> void:
-	if cooldown > 0.0:
-		cooldown -= delta
+func _process(_delta: float) -> void:
+	if active_hand:
+		# Get the parent XRController3D node (LeftHand or RightHand)
+		var controller = active_hand.get_parent() as XRController3D
+		if controller:
+			# Check native Quest 3 grip squeeze value (0.0 to 1.0)
+			var grip_val = controller.get_float("grip")
+			if grip_val > 0.3 or controller.is_button_pressed("grip_click"):
+				is_grabbed = true
+			else:
+				is_grabbed = false
 
-	if active_hand and cooldown <= 0.0:
-		if Input.is_action_just_pressed("trigger") or Input.is_action_just_pressed("grip"):
-			is_on = not is_on
-			cooldown = 0.4
-			rotation_degrees.x = 35.0 if is_on else -35.0
+	if is_grabbed and active_hand:
+		var local_pos = to_local(active_hand.global_position)
+		lever_position = clamp((-local_pos.z + 0.2) * 2.5, 0.0, 1.0)
+		rotation_degrees.x = -lever_position * max_angle_deg
+	
+	if lever_position > 45:
+		vtol_on = true
+	
+	if lever_position < 45:
+		vtol_on = false

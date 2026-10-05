@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5idga3ypq0kt"]
 
 [ext_resource type="Script" uid="uid://drsodr3kpnua1" path="res://Scripts/BasicVTOL.gd" id="1_iy2r2"]
-[ext_resource type="ArrayMesh" uid="uid://cdjhl7fdxvdak" path="res://Assets/Models/plane v2 .obj" id="2_rk7he"]
+[ext_resource type="ArrayMesh" uid="uid://d1w26ukxaeqqh" path="res://Assets/Models/plane v2 .obj" id="2_rk7he"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="3_gnymn"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_8j4kw"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="5_1f38b"]

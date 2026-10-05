@@ -7,6 +7,7 @@ var lever_position: float = 0.0
 var active_hand: Node3D = null
 var is_grabbed: bool = false
 
+
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
@@ -35,3 +36,4 @@ func _process(_delta: float) -> void:
 		var local_pos = to_local(active_hand.global_position)
 		lever_position = clamp((-local_pos.z + 0.2) * 2.5, 0.0, 1.0)
 		rotation_degrees.x = -lever_position * max_angle_deg
+	
