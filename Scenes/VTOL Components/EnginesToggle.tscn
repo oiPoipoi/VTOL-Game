@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cb03yrgj0jcvu" path="res://Scripts/VTOL Components/engines_toggle.gd" id="1_ixsn2"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ehoyk"]
-height = 0.18193054
-radius = 0.03955078
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ayrli"]
+height = 0.18234253
+radius = 0.04736328
 
 [node name="EnginesToggle" type="Area3D" unique_id=313634230]
 collision_layer = 4
@@ -17,8 +17,8 @@ radius = 0.12402344
 height = 0.67626953
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1891003352]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001695171, -0.00044097006, 0)
-shape = SubResource("CylinderShape3D_ehoyk")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001695171, 0.005830407, 0)
+shape = SubResource("CylinderShape3D_ayrli")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

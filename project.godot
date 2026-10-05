@@ -54,6 +54,7 @@ import/fbx2gltf/enabled.android=true
 
 ground=""
 bullet=""
+xr_hand=""
 
 [input]
 
