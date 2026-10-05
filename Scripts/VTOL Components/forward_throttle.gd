@@ -21,10 +21,15 @@ func _on_area_exited(area: Area3D) -> void:
 
 func _process(_delta: float) -> void:
 	if active_hand:
-		if Input.is_action_just_pressed("grip") or Input.is_action_pressed("grip"):
-			is_grabbed = true
-		elif Input.is_action_just_released("grip"):
-			is_grabbed = false
+		# Get the parent XRController3D node (LeftHand or RightHand)
+		var controller = active_hand.get_parent() as XRController3D
+		if controller:
+			# Check native Quest 3 grip squeeze value (0.0 to 1.0)
+			var grip_val = controller.get_float("grip")
+			if grip_val > 0.3 or controller.is_button_pressed("grip_click"):
+				is_grabbed = true
+			else:
+				is_grabbed = false
 
 	if is_grabbed and active_hand:
 		var local_pos = to_local(active_hand.global_position)
