@@ -10,7 +10,7 @@
 [node name="Player" type="XROrigin3D" unique_id=422202251]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=195490408]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17036992, 0)
+fov = 57.475418
 
 [node name="left hand" type="XRController3D" parent="." unique_id=709014924]
 tracker = &"left_hand"
