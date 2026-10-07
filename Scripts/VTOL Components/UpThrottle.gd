@@ -1,6 +1,7 @@
 extends Area3D
 
 @export var max_angle_deg: float = 40.0
+@export var min_angle_deg: float = -40.0
 
 var lever_position: float = 0.0
 
@@ -34,6 +35,6 @@ func _process(_delta: float) -> void:
 
 	if is_grabbed and active_hand:
 		var local_pos = to_local(active_hand.global_position)
-		lever_position = clamp((-local_pos.z + 0.2) * 2.5, 0.0, 1.0)
-		rotation_degrees.x = -lever_position * max_angle_deg
+		lever_position = clamp((-local_pos.z + 0.2) * 2.5, -1.0, 1.0)
+		rotation_degrees.x = -lever_position * (max_angle_deg - min_angle_deg)+ -min_angle_deg
 	
