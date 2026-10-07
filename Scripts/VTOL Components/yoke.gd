@@ -40,3 +40,6 @@ func _process(delta: float) -> void:
 		roll_output = move_toward(roll_output, 0.0, delta * 3.0)
 		rotation_degrees.x = pitch_output * max_pitch_deg
 		rotation_degrees.z = -roll_output * max_roll_deg
+	
+	print("pitch: ", pitch_output)
+	print("roll: ", roll_output)

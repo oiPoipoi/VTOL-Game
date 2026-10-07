@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpsxar82ax02e"]
 
-[ext_resource type="PackedScene" uid="uid://cl2kmcv3lspb1" path="res://Scenes/lever.tscn" id="2_1wjwo"]
+[ext_resource type="PackedScene" uid="uid://blt5nlaqbjj0" path="res://Scenes/VTOL Components/UpwardsThrottle.tscn" id="2_1wjwo"]
 [ext_resource type="PackedScene" uid="uid://dr433ebykbi8m" path="res://Scenes/player_test_with_xrtools.tscn" id="2_85w40"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_85w40"]
@@ -29,12 +29,12 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 light_energy = 2.0
 shadow_enabled = true
 
-[node name="lever" parent="." unique_id=175926087 instance=ExtResource("2_1wjwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8405142)
-
 [node name="player" parent="." unique_id=418302143 instance=ExtResource("2_85w40")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1573445019]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=63123513]
 shape = SubResource("WorldBoundaryShape3D_4fkpe")
+
+[node name="Upwards Throttle" parent="." unique_id=1016651692 instance=ExtResource("2_1wjwo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21947014, 0.0905521, -1.5861552)
