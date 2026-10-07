@@ -36,9 +36,8 @@ func _physics_process(delta: float) -> void:
 	if spawn_grace_period > 0.0:
 		spawn_grace_period -= delta
 
-	if $EnginesToggle.vtol_on == true:
-		if engines_on == false:
-			engines_on = true
+	if $EnginesToggle.lever_position > 0.45:
+		engines_on = true
 	else:
 		engines_on = false
 	

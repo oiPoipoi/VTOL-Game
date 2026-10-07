@@ -1,9 +1,8 @@
 extends Area3D
 
 @export var max_angle_deg: float = 90.0
-@export var vtol_on = false
 
-var lever_position: float = 0.0
+@export var lever_position: float = 0.0
 
 var active_hand: Node3D = null
 var is_grabbed: bool = false
@@ -37,8 +36,4 @@ func _process(_delta: float) -> void:
 		lever_position = clamp((-local_pos.z + 0.2) * 2.5, 0.0, 1.0)
 		rotation_degrees.x = -lever_position * max_angle_deg
 	
-	if lever_position > 45:
-		vtol_on = true
 	
-	if lever_position < 45:
-		vtol_on = false
