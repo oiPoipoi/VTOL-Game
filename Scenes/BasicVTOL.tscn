@@ -99,7 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63525, 0, -1.0924661)
 shape = SubResource("BoxShape3D_sbur7")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=833435127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03461051, -6.593449)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07715905, -6.739168)
 world_scale = 1.4
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=2010280118]
