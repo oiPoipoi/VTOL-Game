@@ -36,5 +36,5 @@ shadow_enabled = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=63123513]
 shape = SubResource("WorldBoundaryShape3D_4fkpe")
 
-[node name="Node3D" parent="." unique_id=12481677 instance=ExtResource("2_1wjwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1186173)
+[node name="Area3D" parent="." unique_id=95526042 instance=ExtResource("2_1wjwo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9245336)

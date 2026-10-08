@@ -1,14 +1,33 @@
 [gd_scene format=3 uid="uid://yp7anwciwpuk"]
 
 [ext_resource type="Script" uid="uid://bqbfpm13rwum2" path="res://Scripts/theo_test_scene.gd" id="1_dub46"]
-[ext_resource type="PackedScene" uid="uid://byhvc5o7mb4wv" path="res://Assets/Models/Hand.glb" id="2_dub46"]
+[ext_resource type="PackedScene" uid="uid://cdqpmc2muya0u" path="res://Assets/Models/Hand.glb" id="2_dub46"]
 [ext_resource type="Script" uid="uid://bwmhrfarxum6s" path="res://Scripts/Hands/right.gd" id="2_h0vfr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gntrk"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_dewec"]
+sky_material = SubResource("ProceduralSkyMaterial_gntrk")
+
+[sub_resource type="Environment" id="Environment_5ixxa"]
+background_mode = 2
+sky = SubResource("Sky_dewec")
+glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7xq6r"]
 size = Vector3(0.8099365, 0.33251953, 0.96606445)
 
 [node name="Main" type="Node3D" unique_id=727411318]
 script = ExtResource("1_dub46")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1419390600]
+environment = SubResource("Environment_5ixxa")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1681909096]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=799080768]
 
