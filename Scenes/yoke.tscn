@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://btferyu006uoq"]
-
-[ext_resource type="Script" uid="uid://q2rixlga0eat" path="res://Scripts/yoke.gd" id="1_lt3gt"]
-
-[node name="Node3D" type="Node3D" unique_id=410886461]
-script = ExtResource("1_lt3gt")
