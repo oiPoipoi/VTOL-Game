@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b5idga3ypq0kt"]
 
 [ext_resource type="Script" uid="uid://drsodr3kpnua1" path="res://Scripts/BasicVTOL.gd" id="1_iy2r2"]
-[ext_resource type="ArrayMesh" uid="uid://d1w26ukxaeqqh" path="res://Assets/Models/plane v2 .obj" id="2_rk7he"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="3_gnymn"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_8j4kw"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="5_1f38b"]
@@ -9,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://blt5nlaqbjj0" path="res://Scenes/VTOL Components/UpwardsThrottle.tscn" id="6_j3ykn"]
 [ext_resource type="PackedScene" uid="uid://th4mjt8qrxd7" path="res://Scenes/VTOL Components/ForwardThrottle.tscn" id="7_ayrli"]
 [ext_resource type="PackedScene" uid="uid://sy0f7v2ahnfd" path="res://Scenes/VTOL Components/EnginesToggle.tscn" id="9_o7tnt"]
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_ayrli"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ejki1"]
 height = 22.229126
@@ -55,7 +56,7 @@ offset_bottom = 23.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=555995233]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
-mesh = ExtResource("2_rk7he")
+mesh = SubResource("PlaceholderMesh_ayrli")
 
 [node name="Damage" type="Node" parent="." unique_id=1867139190 groups=["bullet"]]
 
@@ -99,7 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63525, 0, -1.0924661)
 shape = SubResource("BoxShape3D_sbur7")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=833435127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07715905, -6.739168)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25583646, -6.9576907)
 world_scale = 1.4
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=2010280118]
@@ -135,16 +136,16 @@ collision_mask = 4
 shape = SubResource("SphereShape3D_k0yrt")
 
 [node name="Yoke" parent="." unique_id=317075185 instance=ExtResource("6_ayrli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035647154, 0.22264662, -7.3255296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34371263, -7.447216)
 
 [node name="Forward Throttle" parent="." unique_id=189351235 instance=ExtResource("7_ayrli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41065514, 0, -7.060397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.302, 0.132, -7.315)
 
 [node name="Upwards Throttle" parent="." unique_id=1016651692 instance=ExtResource("6_j3ykn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3020048, 0, -7.1075215)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3020048, 0.13238475, -7.3145905)
 
 [node name="EnginesToggle" parent="." unique_id=313634230 instance=ExtResource("9_o7tnt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5405952, 0, -6.4046764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5405952, 0, -6.7989097)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Damage/ChassisDamage" to="." method="_on_chassis_damage_area_entered"]

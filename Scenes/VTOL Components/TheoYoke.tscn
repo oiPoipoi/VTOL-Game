@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c7p1k47beeh3y"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ya77"]
+
+[node name="Area3D" type="Area3D" unique_id=95526042]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=557585481]
+shape = SubResource("SphereShape3D_7ya77")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=2071017731]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.105020896, 0)
+radius = 0.06
+height = 0.6
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=2126820892]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.097146645, 0)
+radius = 0.06
+height = 0.6
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1386542473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24421, 0, 0)
+radius = 0.06
+height = 0.3
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=367626818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24422365, 0, 0)
+radius = 0.06
+height = 0.3

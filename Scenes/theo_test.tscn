@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpsxar82ax02e"]
 
-[ext_resource type="PackedScene" uid="uid://blt5nlaqbjj0" path="res://Scenes/VTOL Components/UpwardsThrottle.tscn" id="2_1wjwo"]
+[ext_resource type="PackedScene" uid="uid://c7p1k47beeh3y" path="res://Scenes/VTOL Components/TheoYoke.tscn" id="2_1wjwo"]
 [ext_resource type="PackedScene" uid="uid://dr433ebykbi8m" path="res://Scenes/player_test_with_xrtools.tscn" id="2_85w40"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_85w40"]
@@ -36,5 +36,5 @@ shadow_enabled = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=63123513]
 shape = SubResource("WorldBoundaryShape3D_4fkpe")
 
-[node name="Upwards Throttle" parent="." unique_id=1016651692 instance=ExtResource("2_1wjwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21947014, 0.0905521, -1.5861552)
+[node name="Node3D" parent="." unique_id=12481677 instance=ExtResource("2_1wjwo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1186173)
