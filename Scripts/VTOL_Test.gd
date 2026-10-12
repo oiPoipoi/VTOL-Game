@@ -93,8 +93,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		needs_respawn = false
 
 func _on_damage_area_entered(area: Area3D) -> void:
+	pass
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
 	var chassis_rand = randi_range(2,6)
 	chassis_damage -= chassis_rand
-
-func _on_damage_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.

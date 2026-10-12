@@ -6,6 +6,8 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7a2mg"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejki1"]
+
 [node name="RigidBody3D" type="RigidBody3D" unique_id=1840847877 groups=["ground"]]
 contact_monitor = true
 max_contacts_reported = 3
@@ -30,4 +32,10 @@ transform = Transform3D(1, 0, 0, 0, 0.9692008, 0.24627188, 0, -0.24627188, 0.969
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="Area3D" type="Area3D" parent="." unique_id=761899843]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=74891119]
+shape = SubResource("BoxShape3D_ejki1")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

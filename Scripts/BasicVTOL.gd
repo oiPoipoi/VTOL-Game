@@ -22,7 +22,7 @@ var engines_on: bool = false
 
 var needs_respawn: bool = false
 var spawn_transform: Transform3D
-var spawn_grace_period: float = 1.0 # Prevents frame 1 spawn teleports
+var spawn_grace_period: float = 1.0 
 
 # Damage Vars
 var chassis_damage: int = 100
