@@ -113,6 +113,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		$EnginesToggle.lever_position = 0.0
 		$"Upwards Throttle".lever_position = 0.0
 		$"Forward Throttle".lever_position = 0.0
+		engines_on = false
 		needs_respawn = false
 		spawn_grace_period = 1.0
 
